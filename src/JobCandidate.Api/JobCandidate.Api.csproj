@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JobCandidate.Core\JobCandidate.Core.csproj" />
+    <ProjectReference Include="..\JobCandidate.Infrastructure\JobCandidate.Infrastructure.csproj" />
+    <ProjectReference Include="..\JobCandidate.Shared\JobCandidate.Shared.csproj" />
+  </ItemGroup>
+</Project>
