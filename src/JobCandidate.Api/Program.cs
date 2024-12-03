@@ -11,6 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
+// Add configurations
+builder.Services.AddSwaggerConfiguration();
+builder.Services.AddCorsConfiguration();
+builder.Services.AddRateLimitConfiguration();
+
+builder.Logging.ClearProviders();
+// Add serilog
+builder.Host.UseLoggingSetup(builder.Configuration);
 
 // Add Application Insights
 builder.Services.AddApplicationInsightsTelemetry();
@@ -45,7 +53,12 @@ app.UseAuthorization();
 
 app.UseRateLimiter();
 
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 app.MapControllers();
+
+// Configure the HTTP request pipeline.
+app.UseSwaggerConfiguration(app.Environment);
 
 await app.RunAsync();
 

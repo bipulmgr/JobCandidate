@@ -2,6 +2,12 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Exceptions" />
+    <PackageReference Include="Serilog.Sinks.Async" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
 
