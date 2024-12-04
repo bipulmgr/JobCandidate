@@ -1,0 +1,84 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Add permissions block at workflow level
+permissions:
+  contents: write      # This is required for creating releases
+  pull-requests: read
+  issues: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+          
+      - name: Restore dependencies
+        run: dotnet restore
+        
+      - name: Run tests
+        run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage" --logger trx
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Run security scan
+        uses: microsoft/security-devops-action@v1
+        with:
+          categories: 'IaC,containers,secrets'
+          
+      # Publish test results
+      - name: Publish Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: TestResults/*.trx
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+      # Create artifact of the build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+          retention-days: 5
+
+      # Create zip archive for release
+      - name: Create ZIP archive
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          cd ${{env.DOTNET_ROOT}}/myapp
+          zip -r ../../release.zip .
+
+      # Create release with zip file
+      - name: Create Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: release.zip
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+      
+          
