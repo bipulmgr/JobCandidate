@@ -1,3 +1,8 @@
+using FluentValidation;
+using JobCandidate.Core.Interfaces.Services;
+using JobCandidate.Core.Models.Request;
+using JobCandidate.Core.Services;
+using JobCandidate.Core.Validators;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JobCandidate.Core;
@@ -13,6 +18,14 @@ public static class DependencyInjection
     /// <returns>The IServiceCollection so that additional calls can be chained.</returns>
     public static IServiceCollection AddCoreServices(this IServiceCollection services)
     {
+        #region Services
+        services.AddScoped<ICandidateService, CandidateService>();
+        #endregion
+
+        #region Validators
+        services.AddScoped<IValidator<CandidateRequestModel>, CandidateRequestValidator>();
+        #endregion
+
         return services;
     }
 }

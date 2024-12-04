@@ -27,7 +27,7 @@ public static class DependencyInjection
 
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(connectionString, b => b.MigrationsAssembly("JobCandidate.Infrastructure")));
-        
+
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
         return services;

@@ -56,6 +56,10 @@ public class ErrorHandlingMiddleware
                 code = HttpStatusCode.BadRequest;
                 result = JsonSerializer.Serialize(new { errors = validationException.Errors });
                 break;
+            case FluentValidation.ValidationException fluentValidationException:
+                code = HttpStatusCode.BadRequest;
+                result = JsonSerializer.Serialize(new { errors = fluentValidationException.Errors });
+                break;
             case NotFoundException _:
                 code = HttpStatusCode.NotFound;
                 break;

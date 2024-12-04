@@ -1,4 +1,5 @@
 using System.Reflection;
+using JobCandidate.Core.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -21,6 +22,10 @@ public class ApplicationDbContext : DbContext
         _configuration = configuration;
     }
 
+    /// <summary>
+    /// Gets or sets the candidates DbSet.
+    /// </summary>
+    public DbSet<Candidate> Candidates { get; set; } = null!;
 
     /// <summary>
     /// Configures the model that was discovered by convention from the entity types exposed in DbSet properties on your derived context.

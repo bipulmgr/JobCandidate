@@ -1,11 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   
 
   <ItemGroup>
+    <Compile Remove="Models\Search\**" />
+    <EmbeddedResource Remove="Models\Search\**" />
+    <None Remove="Models\Search\**" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <Compile Remove="Models\Common\BaseSearch.cs" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     <PackageReference Include="Mapster" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,8 +31,6 @@
     <Folder Include="Models\Entities\" />
     <Folder Include="Models\Request\" />
     <Folder Include="Models\Response\" />
-    <Folder Include="Models\Search\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

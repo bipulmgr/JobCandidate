@@ -28,6 +28,13 @@ public interface IRepository<T> where T : class
     Task<T?> GetByIdAsync(int id);
 
     /// <summary>
+    /// Retrieves the first or default entity based on a predicate asynchronously.
+    /// </summary>
+    /// <param name="predicate">The condition to filter entities.</param>
+    /// <returns>The first or default entity that matches the condition; otherwise, null.</returns>
+    Task<T?> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
+
+    /// <summary>
     /// Adds a new entity asynchronously.
     /// </summary>
     /// <param name="entity">The entity to add.</param>

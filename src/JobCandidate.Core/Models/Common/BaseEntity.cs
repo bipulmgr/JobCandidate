@@ -9,5 +9,5 @@ public abstract class BaseEntity
     /// <summary>
     /// The unique identifier for the entity.
     /// </summary>
-    public int Id { get; set; }
+    public string Id { get; set; } = null!;
 }

@@ -6,7 +6,6 @@ namespace JobCandidate.Api.Controllers.V1;
 /// Base controller that provides common functionality for API controllers.
 /// </summary>
 [ApiController]
-[Authorize]
 [Route("api/v1/[controller]")]
 public abstract class BaseController : ControllerBase
 {

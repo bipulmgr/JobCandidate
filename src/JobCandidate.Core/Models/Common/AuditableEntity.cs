@@ -13,15 +13,15 @@ public abstract class AuditableEntity : BaseEntity
     /// <summary>
     /// The user who created the entity.
     /// </summary>
-    public string CreatedBy { get; set; } = string.Empty;
+    public string? CreatedBy { get; set; }
 
     /// <summary>
-    /// The date and time when the entity was last modified.
+    /// The date and time when the entity was last updated.
     /// </summary>
-    public DateTime? LastModifiedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
     /// <summary>
-    /// The user who last modified the entity.
+    /// The user who last updated the entity.
     /// </summary>
-    public string LastModifiedBy { get; set; } = string.Empty;
+    public string? UpdatedBy { get; set; }
 }

@@ -6,10 +6,13 @@ https://devblogs.microsoft.com/nuget/introducing-central-package-management/ -->
   </PropertyGroup>
   <ItemGroup>
     <!-- Core Application Libraries -->
+    <PackageVersion Include="FluentValidation" Version="11.11.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
     <PackageVersion Include="Microsoft.Identity.Web" Version="3.2.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10" />
+    <PackageVersion Include="Nanoid" Version="3.1.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.9.0" />
     <!-- Logging and Monitoring -->

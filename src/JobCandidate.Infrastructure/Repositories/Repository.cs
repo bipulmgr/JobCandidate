@@ -44,6 +44,16 @@ public class Repository<T> : IRepository<T> where T : class
     }
 
     /// <summary>
+    /// Retrieves the first or default entity based on the predicate.
+    /// </summary>
+    /// <param name="predicate">The predicate to filter the entity.</param>
+    /// <returns>The first or default entity that matches the predicate; otherwise, null.</returns>
+    public async Task<T?> GetFirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _dbSet.FirstOrDefaultAsync(predicate);
+    }
+
+    /// <summary>
     /// Finds entities based on a predicate.
     /// </summary>
     /// <param name="predicate">The predicate to filter the entities.</param>

@@ -13,8 +13,4 @@
     <ProjectReference Include="..\JobCandidate.Core\JobCandidate.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>
