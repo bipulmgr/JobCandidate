@@ -14,6 +14,11 @@ public class CandidateController : BaseController
     private readonly ICandidateService _candidateService;
     private readonly IValidator<CandidateRequestModel> _validator;
 
+    /// <summary>
+    /// Candidate controller constructor
+    /// </summary>
+    /// <param name="candidateService">The candidate service</param>
+    /// <param name="validator">The validator</param>
     public CandidateController(
         ICandidateService candidateService,
         IValidator<CandidateRequestModel> validator)

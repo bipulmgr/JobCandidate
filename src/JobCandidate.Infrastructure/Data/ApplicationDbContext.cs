@@ -23,9 +23,9 @@ public class ApplicationDbContext : DbContext
     }
 
     /// <summary>
-    /// Gets or sets the candidates DbSet.
+    /// Gets or sets the DbSet of Candidates.
     /// </summary>
-    public DbSet<Candidate> Candidates { get; set; } = null!;
+    public DbSet<Candidate> Candidates { get; set; }
 
     /// <summary>
     /// Configures the model that was discovered by convention from the entity types exposed in DbSet properties on your derived context.

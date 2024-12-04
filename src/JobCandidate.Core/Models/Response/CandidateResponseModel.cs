@@ -1,3 +1,5 @@
+using JobCandidate.Core.Models.Entities;
+
 namespace JobCandidate.Core.Models.Response;
 
 /// <summary>

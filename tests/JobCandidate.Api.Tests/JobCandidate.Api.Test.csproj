@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.RegularExpressions" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Moq" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\JobCandidate.Api\JobCandidate.Api.csproj" />
+    <ProjectReference Include="..\..\src\JobCandidate.Core\JobCandidate.Core.csproj" />
+    <ProjectReference Include="..\..\src\JobCandidate.Infrastructure\JobCandidate.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

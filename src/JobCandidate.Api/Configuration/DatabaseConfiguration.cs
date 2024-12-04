@@ -2,8 +2,19 @@ using JobCandidate.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobCandidate.Api.Configuration;
+
+/// <summary>
+/// Database configuration class
+/// </summary>
 public static class DatabaseConfiguration
 {
+
+    /// <summary>
+    /// Adds database configuration to the service collection
+    /// </summary>
+    /// <param name="services">The service collection</param>
+    /// <param name="configuration">The configuration</param>
+    /// <returns>The service collection</returns>
     public static IServiceCollection AddDatabaseConfiguration(
         this IServiceCollection services,
         IConfiguration configuration
@@ -21,6 +32,10 @@ public static class DatabaseConfiguration
         return services;
     }
 
+    /// <summary>
+    /// Applies database migrations
+    /// </summary>
+    /// <param name="app">The application builder</param>
     public static void ApplyDatabaseMigrations(IApplicationBuilder app)
     {
         using var scope = app.ApplicationServices.CreateScope();

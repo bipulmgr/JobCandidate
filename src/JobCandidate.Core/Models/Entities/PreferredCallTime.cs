@@ -1,3 +1,4 @@
+﻿namespace JobCandidate.Core.Models.Entities;
 
 /// <summary>
 /// Represents a preferred call time interval.

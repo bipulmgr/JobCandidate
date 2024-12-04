@@ -1,16 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  
-
-  <ItemGroup>
-    <Compile Remove="Models\Search\**" />
-    <EmbeddedResource Remove="Models\Search\**" />
-    <None Remove="Models\Search\**" />
-  </ItemGroup>
-  
-
-  <ItemGroup>
-    <Compile Remove="Models\Common\BaseSearch.cs" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
   
 
   <ItemGroup>
@@ -24,13 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobCandidate.Shared\JobCandidate.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Models\Entities\" />
-    <Folder Include="Models\Request\" />
-    <Folder Include="Models\Response\" />
   </ItemGroup>
 
 </Project>

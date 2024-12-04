@@ -31,7 +31,7 @@ public class Candidate : AuditableEntity
     /// Gets or sets the preferred call time interval of the job candidate.
     /// Stored as JSON string containing start and end time.
     /// </summary>
-    public PreferredCallTime? PreferredCallTime { get; set; }       
+    public PreferredCallTime? PreferredCallTime { get; set; }
 
     /// <summary>
     /// Gets or sets the LinkedIn URL of the job candidate.

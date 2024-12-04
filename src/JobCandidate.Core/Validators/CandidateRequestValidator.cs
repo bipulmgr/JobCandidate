@@ -1,4 +1,4 @@
-using FluentValidation;
+﻿using FluentValidation;
 using JobCandidate.Core.Models.Request;
 using JobCandidate.Shared.CommonHelpers;
 
