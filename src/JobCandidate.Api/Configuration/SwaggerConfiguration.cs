@@ -18,7 +18,7 @@ public static class SwaggerConfiguration
         {
             c.SwaggerDoc(
                 "v1",
-                new OpenApiInfo { Title = "Enterprise API Starter", Version = "v1" }
+                new OpenApiInfo { Title = "Job Candidate API", Version = "v1" }
             );
             c.AddSecurityDefinition(
                 "Bearer",
